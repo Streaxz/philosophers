@@ -33,14 +33,14 @@ class DiningPhilosophers {
                 pickLeftFork.run();
                 locks[philosopher + 1].lock();
                 pickRightFork.run();
-                forks[philosopher] = false;
+                forks[philosopher + 1] = false;
 
                 eat.run();
                 putRightFork.run();
                 forks[philosopher] = true;
                 locks[philosopher + 1].unlock();
                 putLeftFork.run();
-                forks[philosopher] = true;
+                forks[philosopher + 1] = true;
                 locks[philosopher].unlock();
             } else {
                 Thread.sleep(5);
